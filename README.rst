@@ -105,8 +105,8 @@ in libleipzig by supplying the ``corpus`` parameter to any of the service
 calls:
 
 >>> import libleipzig
->>> libleipzig.Cooccurrences("programming", 0, 1, corpus="en")
-[(Wort: u'programming', Kookkurrenz: u'language', Signifikanz: u'4152')]
+>>> libleipzig.Cooccurrences("müde", 0, 1, corpus="de")
+[(Wort: 'müde', Kookkurrenz: 'bin', Signifikanz: '484')]
 
 Authentication
 --------------
