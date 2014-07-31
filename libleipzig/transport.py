@@ -1,4 +1,5 @@
 # Copyright (C) 2009, 2010 Robert Lehmann
+# Ported to python3 by Peter Körner 2014
 
 import functools
 import inspect
