@@ -1,6 +1,6 @@
-=================================================
- libleipzig -- wortschatz.uni-leipzig.de binding
-=================================================
+===================================================================
+ libleipzig -- wortschatz.uni-leipzig.de binding - port to python3
+===================================================================
 
 **libleipzig-python** provides a wrapper to the web services provided by the
 `Deutscher Wortschatz`_ project of the University of Leipzig.  **Deutscher
