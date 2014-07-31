@@ -4,7 +4,7 @@ import optparse
 
 parser = optparse.OptionParser(
     epilog = "Services: %s" % ("; ".join(service._label for service
-                                          in services.itervalues()))
+                                          in services.values()))
         )
 parser.add_option("-s", "--schema", action='store_true',
     help="show service's output schema and exit")
@@ -24,12 +24,12 @@ def main():
         parser.print_help()
         return 1
     if args[0] not in services:
-        print >>sys.stderr, "unknown service"
+        print("unknown service", file=sys.stderr)
         return 1
     service, args = services[args[0]], args[1:]
     delim = options.delimiter.decode('string-escape')
     if options.schema:
-        print delim.join(service._returns)
+        print(delim.join(service._returns))
         return
 
     if options.user and options.password:
@@ -48,14 +48,14 @@ def main():
 
     try:
         results = service(*args)
-    except TypeError, e:
-        print >>sys.stderr, str(e)
+    except TypeError as e:
+        print(str(e), file=sys.stderr)
         return 1
-    except WebFault, e:
-        print >>sys.stderr, "remote failure: %s" % e
+    except WebFault as e:
+        print("remote failure: %s" % e, file=sys.stderr)
         return 2
     else:
-        print '\n'.join(delim.join(result) for result in results)
+        print('\n'.join(delim.join(result) for result in results))
 
 if __name__ == '__main__':
     main()

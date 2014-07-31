@@ -3,7 +3,7 @@
 import functools
 import inspect
 import operator
-import suds
+import suds, suds.client, suds.transport.http
 
 BASEURL = 'http://pcai055.informatik.uni-leipzig.de:8100/axis/services/%s?wsdl'
 services = {}
@@ -69,7 +69,7 @@ def service(*results):
             if not response.result:
                 return []
             # do not use yield to trigger function body immediately
-            return [Result(map(unicode, e.dataRow))
+            return [Result(map(str, e.dataRow))
                     for e in response.result.dataVectors]
 
         func._doc = func.__doc__ or ''
